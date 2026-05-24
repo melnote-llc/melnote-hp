@@ -218,9 +218,21 @@
         .about-flex {
             display: flex;
             align-items: center;
+            gap: 56px;
         }
 
         .about-copy { flex: 1; }
+
+        .about-visual {
+            flex: 0 0 auto;
+            width: 280px;
+        }
+
+        .about-illust {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
 
         /* ── SERVICES ───────────────────────────────────── */
         #services { background: var(--blue-pale); }
@@ -444,6 +456,64 @@
                     メルノート合同会社は、企業向けの映像教育サービスを提供しています。<br><br>
                     「映像で伝える力」を組織の中に育てることで、採用・広報・社内研修・マーケティングなど、あらゆる場面での表現力を高めます。外注に頼らず、自社で映像を企画・制作できるチームへ。私たちがその伴走役を担います。
                 </p>
+            </div>
+            <div class="about-visual">
+                <svg class="about-illust" viewBox="0 0 280 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- 背景円 -->
+                  <circle cx="140" cy="120" r="108" fill="#ecf5fa"/>
+
+                  <!-- モニター本体 -->
+                  <rect x="50" y="48" width="168" height="112" rx="12" fill="#3D5766"/>
+                  <rect x="58" y="56" width="152" height="96" rx="8" fill="#85c0db"/>
+
+                  <!-- 画面内テキスト行（コンテンツ表現） -->
+                  <rect x="70" y="70" width="64" height="7" rx="3.5" fill="rgba(255,255,255,0.35)"/>
+                  <rect x="70" y="82" width="44" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
+                  <rect x="70" y="93" width="54" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
+
+                  <!-- 再生ボタン -->
+                  <circle cx="172" cy="102" r="26" fill="rgba(255,255,255,0.18)"/>
+                  <circle cx="172" cy="102" r="19" fill="rgba(255,255,255,0.22)"/>
+                  <polygon points="165,91 165,113 185,102" fill="white"/>
+
+                  <!-- スタンド -->
+                  <rect x="126" y="160" width="28" height="10" rx="3" fill="#3D5766"/>
+                  <rect x="106" y="168" width="68" height="9" rx="4.5" fill="#3D5766"/>
+
+                  <!-- カメラ（右上フロート） -->
+                  <rect x="210" y="68" width="54" height="38" rx="7" fill="#6aaccb"/>
+                  <rect x="214" y="62" width="22" height="8" rx="3" fill="#4a8aaa"/>
+                  <rect x="258" y="72" width="14" height="30" rx="5" fill="#4a8aaa"/>
+                  <circle cx="237" cy="87" r="13" fill="#3D5766"/>
+                  <circle cx="237" cy="87" r="8" fill="#4a7585"/>
+                  <circle cx="237" cy="87" r="4" fill="#7abccc"/>
+                  <circle cx="234" cy="84" r="2" fill="rgba(255,255,255,0.45)"/>
+                  <circle cx="215" cy="75" r="4" fill="#ff8888"/>
+
+                  <!-- 人物（左・プレゼンター） -->
+                  <circle cx="30" cy="102" r="15" fill="#b5d9e9"/>
+                  <path d="M15,132 Q17,118 30,114 Q43,118 45,132 L49,175 H11 Z" fill="#b5d9e9"/>
+                  <!-- 腕（画面を指す） -->
+                  <path d="M43,124 Q56,114 68,105" stroke="#b5d9e9" stroke-width="9" stroke-linecap="round"/>
+
+                  <!-- フィルムストリップ（下部） -->
+                  <rect x="72" y="196" width="12" height="20" rx="2" fill="#3D5766" opacity="0.18"/>
+                  <rect x="72" y="199" width="12" height="5" rx="1" fill="white" opacity="0.55"/>
+                  <rect x="72" y="207" width="12" height="5" rx="1" fill="white" opacity="0.55"/>
+                  <rect x="90" y="196" width="12" height="20" rx="2" fill="#3D5766" opacity="0.18"/>
+                  <rect x="90" y="199" width="12" height="5" rx="1" fill="white" opacity="0.55"/>
+                  <rect x="90" y="207" width="12" height="5" rx="1" fill="white" opacity="0.55"/>
+                  <rect x="108" y="196" width="12" height="20" rx="2" fill="#3D5766" opacity="0.18"/>
+                  <rect x="108" y="199" width="12" height="5" rx="1" fill="white" opacity="0.55"/>
+                  <rect x="108" y="207" width="12" height="5" rx="1" fill="white" opacity="0.55"/>
+
+                  <!-- 装飾ドット -->
+                  <circle cx="48" cy="45" r="5" fill="#85c0db" opacity="0.5"/>
+                  <circle cx="33" cy="62" r="3" fill="#b5d9e9"/>
+                  <circle cx="250" cy="48" r="4" fill="#85c0db" opacity="0.6"/>
+                  <circle cx="265" cy="165" r="4" fill="#b5d9e9" opacity="0.7"/>
+                  <circle cx="178" cy="210" r="3" fill="#85c0db" opacity="0.4"/>
+                </svg>
             </div>
         </div>
     </div>
