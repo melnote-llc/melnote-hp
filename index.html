@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>メルノート合同会社 | Melnote LLC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+
+        :root {
+            --blue:       #85c0db;
+            --blue-mid:   #6aaccb;
+            --blue-light: #b5d9e9;
+            --blue-pale:  #ecf5fa;
+            --text:       #3D5766;
+            --text-light: #7A9AAA;
+            --white:      #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 300;
+            color: var(--text);
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+
+        /* ── NAV ────────────────────────────────────────── */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 18px 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(133, 192, 219, 0.93);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.88rem;
+            letter-spacing: 0.12em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.82);
+            text-decoration: none;
+            font-size: 0.78rem;
+            letter-spacing: 0.18em;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: white; }
+
+        /* ── HERO ───────────────────────────────────────── */
+        #hero {
+            background: var(--blue);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 40px 60px;
+            position: relative;
+        }
+
+        .hero-sheep {
+            width: 180px;
+            margin-bottom: 44px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50%       { transform: translateY(-12px); }
+        }
+
+        #hero h1 {
+            color: white;
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            font-weight: 300;
+            letter-spacing: 0.22em;
+            margin-bottom: 8px;
+        }
+
+        .hero-en {
+            color: rgba(255,255,255,0.55);
+            font-size: 0.72rem;
+            letter-spacing: 0.3em;
+            margin-bottom: 36px;
+        }
+
+        .hero-catch {
+            color: rgba(255,255,255,0.88);
+            font-size: clamp(0.88rem, 1.8vw, 1rem);
+            line-height: 2.4;
+            letter-spacing: 0.06em;
+            text-align: left;
+        }
+
+        .hero-nav {
+            display: flex;
+            gap: 28px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hero-nav a {
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding-bottom: 2px;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .hero-nav a:hover {
+            color: white;
+            border-color: white;
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 36px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+        }
+
+        .to-top {
+            display: block;
+            text-align: center;
+            margin-top: 48px;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            color: var(--blue);
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .to-top:hover { opacity: 1; }
+
+        .scroll-line {
+            width: 1px;
+            height: 40px;
+            background: rgba(255,255,255,0.4);
+            animation: scrollAnim 1.8s ease-in-out infinite;
+        }
+
+        @keyframes scrollAnim {
+            0%   { transform: scaleY(0); transform-origin: top; }
+            45%  { transform: scaleY(1); transform-origin: top; }
+            55%  { transform: scaleY(1); transform-origin: bottom; }
+            100% { transform: scaleY(0); transform-origin: bottom; }
+        }
+
+        /* ── SHARED SECTION ─────────────────────────────── */
+        .section { padding: 96px 40px; }
+        .section-inner { max-width: 840px; margin: 0 auto; }
+
+        .tag {
+            display: inline-block;
+            font-size: 0.68rem;
+            letter-spacing: 0.32em;
+            color: var(--blue);
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: clamp(1.3rem, 3vw, 1.65rem);
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .rule {
+            width: 32px;
+            height: 2px;
+            background: var(--blue);
+            margin-bottom: 36px;
+        }
+
+        .body-text {
+            font-size: 0.93rem;
+            line-height: 2.3;
+            color: var(--text);
+        }
+
+        /* ── ABOUT ──────────────────────────────────────── */
+        #about { background: var(--white); }
+
+        .about-flex {
+            display: flex;
+            align-items: center;
+        }
+
+        .about-copy { flex: 1; }
+
+        /* ── SERVICES ───────────────────────────────────── */
+        #services { background: var(--blue-pale); }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
+            gap: 18px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 32px 26px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 36px rgba(133, 192, 219, 0.25);
+        }
+
+        .card-num {
+            font-size: 0.68rem;
+            letter-spacing: 0.22em;
+            color: var(--blue);
+            margin-bottom: 14px;
+            font-weight: 400;
+        }
+
+        .card h3 {
+            font-size: 0.97rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            margin-bottom: 14px;
+            color: var(--text);
+        }
+
+        .card p {
+            font-size: 0.82rem;
+            line-height: 2;
+            color: var(--text-light);
+        }
+
+        /* ── CONCEPT ────────────────────────────────────── */
+        #concept { background: var(--white); }
+
+        .concept-block {
+            background: var(--blue-pale);
+            border-left: 3px solid var(--blue);
+            padding: 28px 32px;
+            border-radius: 0 14px 14px 0;
+            margin: 36px 0;
+            font-size: 0.93rem;
+            line-height: 2.3;
+            color: var(--text);
+        }
+
+        /* ── FLOW ───────────────────────────────────────── */
+        #flow { background: var(--blue-pale); }
+
+        .flow-list { display: flex; flex-direction: column; }
+
+        .flow-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+            padding: 28px 0;
+            border-bottom: 1px solid rgba(133, 192, 219, 0.3);
+        }
+
+        .flow-item:last-child { border-bottom: none; }
+
+        .f-num {
+            flex: 0 0 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: var(--blue);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.82rem;
+            letter-spacing: 0.05em;
+            margin-top: 2px;
+        }
+
+        .f-body h4 {
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .f-body p {
+            font-size: 0.84rem;
+            line-height: 2;
+            color: var(--text-light);
+        }
+
+        /* ── CONTACT ────────────────────────────────────── */
+        #contact {
+            background: var(--blue);
+            text-align: center;
+        }
+
+        #contact .tag  { color: rgba(255,255,255,0.55); }
+        #contact h2    { color: white; }
+        #contact .rule { margin: 0 auto 32px; background: rgba(255,255,255,0.45); }
+        #contact .body-text { color: rgba(255,255,255,0.85); }
+
+        .contact-btn {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 15px 56px;
+            background: white;
+            color: var(--blue-mid);
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 0.86rem;
+            letter-spacing: 0.16em;
+            font-weight: 400;
+            transition: opacity 0.2s;
+        }
+
+        .contact-btn:hover { opacity: 0.82; }
+
+        /* ── FOOTER ─────────────────────────────────────── */
+        footer {
+            background: #3D5766;
+            color: rgba(255,255,255,0.45);
+            text-align: center;
+            padding: 32px 40px;
+            font-size: 0.73rem;
+            letter-spacing: 0.1em;
+        }
+
+        /* ── RESPONSIVE ─────────────────────────────────── */
+        @media (max-width: 640px) {
+            nav { padding: 16px 20px; }
+            .nav-links { gap: 18px; }
+            .about-flex { flex-direction: column; gap: 40px; }
+            .about-visual { display: none; }
+            .section { padding: 64px 24px; }
+            .concept-block { padding: 22px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- SVG シンボル定義（非表示） ─────────────────────────────
+     実際のロゴパスを一度だけ定義し、各所で <use> 再利用
+──────────────────────────────────────────────────────── -->
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- 輪郭（ダーク・アウトライン）レイヤー -->
+    <path id="sp-outline" fill-rule="evenodd"
+      d="M789.33,596.03c-1.99-5.06-12.88-20.95-13.01-22.23-.26-2.59,5.91-16.96,6.98-22.03,4.59-21.81,1.05-41.27-9.95-60.42-1.79-3.12-6.79-7.45-7.4-9.46-1.74-5.77,3.23-14.99,2.8-22.53-.46-7.95-4.65-13.76-7.68-20.67-5.11,6.68-11.69,10.9-18.11,16.19,26.96,67.71,42.55,215.18-60.55,223.59-60.25,4.91-136.4-16.03-172.16-67.6-21.86-31.52-27.07-70.44-22.58-108.03-8.64,7.39-16.23,15.86-25.45,22.65-31.03,22.87-67.76,31.64-105.89,33.86,3.54-76.71,86.49-116.73,153.32-126.88,8.3,25.56,27.85,37.54,54.79,33.34,10.65-1.66,16.89-9,26.12-13.15,28.31,28.35,74.03,20.31,93.39-13.95,23.2,26.93,66.03,20.89,78.32-13.36,14.84-41.34-18.47-89.74-63.79-73.73-5.7-36.57-47.79-50.97-75.63-27.53-14.07-37.62-57.01-55.48-90.75-29.62-4.99,3.82-9.11,11.13-12.33,13.64-.86.67-2.28,1.26-3.05.73-.57-.39-5.58-9.35-7.67-11.44-34.42-34.36-94.86-18.65-109.99,26.72-65.85-33.67-131.79,40.67-109.97,105.39-53.93-10.75-92.15,49.57-67.07,96.76-27.42,22.81-34.67,64.07-11.59,92.66,2.59,3.21,15.56,13.73,15.9,14.76.93,2.87-4.37,16.97-4.52,22.64-1.69,60.6,79.38,77.34,110.84,29.83,21.42,27.87,59.58,36.32,90.41,18.59,8.03-4.62,13.24-12.2,20.88-16.98,29.67,36.28,80.86,33.59,110.18-1.61,21.76,26.98,56.66,36.36,87.85,19.09,9.18-5.08,13.76-12.01,22.08-17.59,62.08,70.2,156.32-12.51,125.27-91.62ZM612.57,489.48c-41.32,5.88-42.12,70.82-.23,75.8,59.86,7.11,56.18-83.76.23-75.8Z"/>
+    <!-- 本体（ホワイト）レイヤー -->
+    <path id="sp-body" fill-rule="evenodd"
+      d="M789.33,596.03c-1.99-5.06-12.88-20.95-13.01-22.23-.26-2.59,5.91-16.96,6.98-22.03,4.59-21.81,1.05-41.27-9.95-60.42-1.79-3.12-6.79-7.45-7.4-9.46-1.74-5.77,3.23-14.99,2.8-22.53-.46-7.95-4.65-13.76-7.68-20.67-5.11,6.68-11.69,10.9-18.11,16.19,26.96,67.71,37.65,203.58-65.45,211.99-60.25,4.91-131.5-4.42-167.26-56-21.86-31.52-27.07-70.44-22.58-108.03-8.64,7.39-16.23,15.86-25.45,22.65-31.03,22.87-67.76,31.64-105.89,33.86,3.54-76.71,86.49-116.73,153.32-126.88,8.3,25.56,27.85,37.54,54.79,33.34,10.65-1.66,16.89-9,26.12-13.15,28.31,28.35,74.03,20.31,93.39-13.95,23.2,26.93,66.03,20.89,78.32-13.36,14.84-41.34-18.47-89.74-63.79-73.73-5.7-36.57-47.79-50.97-75.63-27.53-14.07-37.62-57.01-55.48-90.75-29.62-4.99,3.82-9.11,11.13-12.33,13.64-.86.67-2.28,1.26-3.05.73-.57-.39-5.58-9.35-7.67-11.44-34.42-34.36-94.86-18.65-109.99,26.72-65.85-33.67-131.79,40.67-109.97,105.39-53.93-10.75-92.15,49.57-67.07,96.76-27.42,22.81-34.67,64.07-11.59,92.66,2.59,3.21,15.56,13.73,15.9,14.76.93,2.87-4.37,16.97-4.52,22.64-1.69,60.6,79.38,77.34,110.84,29.83,21.42,27.87,59.58,36.32,90.41,18.59,8.03-4.62,13.24-12.2,20.88-16.98,29.67,36.28,80.86,33.59,110.18-1.61,21.76,26.98,56.66,36.36,87.85,19.09,9.18-5.08,13.76-12.01,22.08-17.59,62.08,70.2,156.32-12.51,125.27-91.62Z"/>
+    <!-- 目のハイライト -->
+    <path id="sp-eye" fill-rule="evenodd"
+      d="M612.57,489.48c-41.32,5.88-42.12,70.82-.23,75.8,59.86,7.11,56.18-83.76.23-75.8Z"/>
+  </defs>
+</svg>
+
+<!-- ======================================================
+     NAV
+====================================================== -->
+<nav>
+    <a href="#hero" class="nav-logo">
+        <svg width="30" height="30" viewBox="0 0 992 992" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <use href="#sp-outline" fill="rgba(255,255,255,0.25)"/>
+            <use href="#sp-body"    fill="white"/>
+            <use href="#sp-eye"     fill="white"/>
+        </svg>
+        メルノート合同会社
+    </a>
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#concept">Concept</a></li>
+        <li><a href="#flow">Flow</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- ======================================================
+     HERO
+====================================================== -->
+<section id="hero">
+    <!-- ロゴと同じ背景色(#85c0db)の上に重ねるため、アウトラインは暗色で表示 -->
+    <svg class="hero-sheep" viewBox="0 0 992 992" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <use href="#sp-outline" fill="#060810"/>
+        <use href="#sp-body"    fill="#fdfefe"/>
+        <use href="#sp-eye"     fill="#fdfefe"/>
+    </svg>
+
+    <h1>メルノート合同会社</h1>
+    <p class="hero-en">Melnote LLC</p>
+    <p class="hero-catch">
+        映像の力で あなたの会社を変える<br>
+        映像制作・AI活用・企業研修を通じて<br>
+        組織の「伝える力」を育てます
+    </p>
+
+    <div class="scroll-hint">
+        <div class="scroll-line"></div>
+        <span>scroll</span>
+    </div>
+</section>
+
+<!-- ======================================================
+     ABOUT
+====================================================== -->
+<section id="about" class="section">
+    <div class="section-inner">
+        <div class="about-flex">
+            <div class="about-copy">
+                <span class="tag">About</span>
+                <h2>映像教育で、<br>組織を強くする。</h2>
+                <div class="rule"></div>
+                <p class="body-text">
+                    メルノート合同会社は、企業向けの映像教育サービスを提供しています。<br><br>
+                    「映像で伝える力」を組織の中に育てることで、採用・広報・社内研修・マーケティングなど、あらゆる場面での表現力を高めます。外注に頼らず、自社で映像を企画・制作できるチームへ。私たちがその伴走役を担います。
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <a href="#hero" class="to-top">↑ ページトップへ</a>
+    </div>
+</section>
+
+<!-- ======================================================
+     SERVICES
+====================================================== -->
+<section id="services" class="section">
+    <div class="section-inner">
+        <span class="tag">Services</span>
+        <h2>サービス内容</h2>
+        <div class="rule"></div>
+        <div class="services-grid">
+
+            <div class="card">
+                <p class="card-num">01</p>
+                <h3>企業研修</h3>
+                <p>映像制作の基礎から実践まで、貴社の課題に合わせたカスタム研修を実施。現場ですぐ使えるスキルを体系的に習得できます。</p>
+            </div>
+
+            <div class="card">
+                <p class="card-num">02</p>
+                <h3>内製化伴走</h3>
+                <p>映像制作・編集の内製化をチームごと伴走支援。ツール選定から実運用の定着まで、現場に寄り添ってサポートします。</p>
+            </div>
+
+            <div class="card">
+                <p class="card-num">03</p>
+                <h3>撮影勉強会</h3>
+                <p>撮影の基礎から実践的な技術まで、少人数でじっくり学べる勉強会。機材の使い方からライティングまで丁寧にお伝えします。</p>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+        <a href="#hero" class="to-top">↑ ページトップへ</a>
+    </div>
+</section>
+
+<!-- ======================================================
+     CONCEPT
+====================================================== -->
+<section id="concept" class="section">
+    <div class="section-inner">
+        <span class="tag">Concept</span>
+        <h2>なぜ、映像教育なのか。</h2>
+        <div class="rule"></div>
+        <p class="body-text">
+            動画は今や、最も届きやすいコミュニケーションのかたちです。採用、広報、社内伝達、顧客対応——あらゆる場面で映像の重要性は増しています。
+        </p>
+        <div class="concept-block">
+            しかし、映像制作を外注し続けることには限界があります。<br>
+            スピード、コスト、そして「自社らしさ」——外注では補えない部分が、必ず生まれます。
+        </div>
+        <p class="body-text">
+            メルノートは、「映像をつくれる組織」をつくることを目指しています。知識とスキルを社内に根付かせることで、スピード感があり、コストを抑えた映像発信が可能になります。<br><br>
+            羊のように、ふわりと柔らかく、でも確実に前へ。そんな組織の成長を、私たちは伴走します。
+        </p>
+    </div>
+</section>
+
+        <a href="#hero" class="to-top">↑ ページトップへ</a>
+    </div>
+</section>
+
+<!-- ======================================================
+     FLOW
+====================================================== -->
+<section id="flow" class="section">
+    <div class="section-inner">
+        <span class="tag">Flow</span>
+        <h2>ご利用の流れ</h2>
+        <div class="rule"></div>
+        <div class="flow-list">
+
+            <div class="flow-item">
+                <div class="f-num">01</div>
+                <div class="f-body">
+                    <h4>お問い合わせ</h4>
+                    <p>まずはお気軽にご連絡ください。課題や目的をヒアリングし、最適なサービスをご提案します。</p>
+                </div>
+            </div>
+
+            <div class="flow-item">
+                <div class="f-num">02</div>
+                <div class="f-body">
+                    <h4>ご提案・お見積り</h4>
+                    <p>貴社の状況に合わせたカスタムプランをご提案。研修内容・スケジュール・費用感をご確認いただきます。</p>
+                </div>
+            </div>
+
+            <div class="flow-item">
+                <div class="f-num">03</div>
+                <div class="f-body">
+                    <h4>実施・伴走</h4>
+                    <p>研修・制作・伴走支援を開始。進捗に合わせてフレキシブルに対応し、定着するまでサポートします。</p>
+                </div>
+            </div>
+
+            <div class="flow-item">
+                <div class="f-num">04</div>
+                <div class="f-body">
+                    <h4>振り返りと継続改善</h4>
+                    <p>実施後のフィードバックをもとに改善を行い、継続的な成長につながる体制を整えます。</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+        <a href="#hero" class="to-top">↑ ページトップへ</a>
+    </div>
+</section>
+
+<!-- ======================================================
+     CONTACT
+====================================================== -->
+<section id="contact" class="section">
+    <div class="section-inner" style="text-align:center;">
+        <span class="tag">Contact</span>
+        <h2>お問い合わせ</h2>
+        <div class="rule"></div>
+        <p class="body-text">
+            サービスについてのご質問・ご相談はお気軽にどうぞ。<br>
+            まずはお話を聞かせてください。
+        </p>
+        <a href="mailto:melnotellc@gmail.com" class="contact-btn">メールでお問い合わせ</a>
+    </div>
+</section>
+
+<!-- ======================================================
+     FOOTER
+====================================================== -->
+<footer>
+    <p>© 2026 メルノート合同会社</p>
+</footer>
+
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            var target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+</script>
+</body>
+</html>
