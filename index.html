@@ -225,7 +225,7 @@
 
         .about-visual {
             flex: 0 0 auto;
-            width: 280px;
+            width: 380px;
         }
 
         .about-illust {
@@ -493,61 +493,84 @@
                 </p>
             </div>
             <div class="about-visual">
-                <svg class="about-illust" viewBox="0 0 280 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <!-- 背景円 -->
-                  <circle cx="140" cy="120" r="108" fill="#ecf5fa"/>
-
-                  <!-- モニター本体 -->
-                  <rect x="50" y="48" width="168" height="112" rx="12" fill="#3D5766"/>
-                  <rect x="58" y="56" width="152" height="96" rx="8" fill="#85c0db"/>
-
-                  <!-- 画面内テキスト行（コンテンツ表現） -->
-                  <rect x="70" y="70" width="64" height="7" rx="3.5" fill="rgba(255,255,255,0.35)"/>
-                  <rect x="70" y="82" width="44" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
-                  <rect x="70" y="93" width="54" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
-
-                  <!-- 再生ボタン -->
-                  <circle cx="172" cy="102" r="26" fill="rgba(255,255,255,0.18)"/>
-                  <circle cx="172" cy="102" r="19" fill="rgba(255,255,255,0.22)"/>
-                  <polygon points="165,91 165,113 185,102" fill="white"/>
-
-                  <!-- スタンド -->
-                  <rect x="126" y="160" width="28" height="10" rx="3" fill="#3D5766"/>
-                  <rect x="106" y="168" width="68" height="9" rx="4.5" fill="#3D5766"/>
-
-                  <!-- カメラ（右上フロート） -->
-                  <rect x="210" y="68" width="54" height="38" rx="7" fill="#6aaccb"/>
-                  <rect x="214" y="62" width="22" height="8" rx="3" fill="#4a8aaa"/>
-                  <rect x="258" y="72" width="14" height="30" rx="5" fill="#4a8aaa"/>
-                  <circle cx="237" cy="87" r="13" fill="#3D5766"/>
-                  <circle cx="237" cy="87" r="8" fill="#4a7585"/>
-                  <circle cx="237" cy="87" r="4" fill="#7abccc"/>
-                  <circle cx="234" cy="84" r="2" fill="rgba(255,255,255,0.45)"/>
-                  <circle cx="215" cy="75" r="4" fill="#ff8888"/>
-
-                  <!-- 人物（左・プレゼンター） -->
-                  <circle cx="30" cy="102" r="15" fill="#b5d9e9"/>
-                  <path d="M15,132 Q17,118 30,114 Q43,118 45,132 L49,175 H11 Z" fill="#b5d9e9"/>
-                  <!-- 腕（画面を指す） -->
-                  <path d="M43,124 Q56,114 68,105" stroke="#b5d9e9" stroke-width="9" stroke-linecap="round"/>
-
-                  <!-- フィルムストリップ（下部） -->
-                  <rect x="72" y="196" width="12" height="20" rx="2" fill="#3D5766" opacity="0.18"/>
-                  <rect x="72" y="199" width="12" height="5" rx="1" fill="white" opacity="0.55"/>
-                  <rect x="72" y="207" width="12" height="5" rx="1" fill="white" opacity="0.55"/>
-                  <rect x="90" y="196" width="12" height="20" rx="2" fill="#3D5766" opacity="0.18"/>
-                  <rect x="90" y="199" width="12" height="5" rx="1" fill="white" opacity="0.55"/>
-                  <rect x="90" y="207" width="12" height="5" rx="1" fill="white" opacity="0.55"/>
-                  <rect x="108" y="196" width="12" height="20" rx="2" fill="#3D5766" opacity="0.18"/>
-                  <rect x="108" y="199" width="12" height="5" rx="1" fill="white" opacity="0.55"/>
-                  <rect x="108" y="207" width="12" height="5" rx="1" fill="white" opacity="0.55"/>
-
-                  <!-- 装飾ドット -->
-                  <circle cx="48" cy="45" r="5" fill="#85c0db" opacity="0.5"/>
-                  <circle cx="33" cy="62" r="3" fill="#b5d9e9"/>
-                  <circle cx="250" cy="48" r="4" fill="#85c0db" opacity="0.6"/>
-                  <circle cx="265" cy="165" r="4" fill="#b5d9e9" opacity="0.7"/>
-                  <circle cx="178" cy="210" r="3" fill="#85c0db" opacity="0.4"/>
+                <svg class="about-illust" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" fill="none">
+                  <defs>
+                    <linearGradient id="beamGrad" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#CFEFF6" stop-opacity="0.22"/>
+                      <stop offset="100%" stop-color="#CFEFF6" stop-opacity="0.05"/>
+                    </linearGradient>
+                    <linearGradient id="panelFront" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#F8FDFF"/>
+                      <stop offset="100%" stop-color="#EDF9FC"/>
+                    </linearGradient>
+                    <linearGradient id="panelSide" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#AEE6F2"/>
+                      <stop offset="100%" stop-color="#89D9EA"/>
+                    </linearGradient>
+                    <linearGradient id="cyanMain" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#E8F8FC"/>
+                      <stop offset="100%" stop-color="#BEEBF5"/>
+                    </linearGradient>
+                    <linearGradient id="cyanSoft" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#F4FCFE"/>
+                      <stop offset="100%" stop-color="#DDF4FA"/>
+                    </linearGradient>
+                    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                      <feGaussianBlur in="SourceAlpha" stdDeviation="8" result="blur"/>
+                      <feOffset dy="2" result="offsetBlur"/>
+                      <feColorMatrix in="offsetBlur" type="matrix" values="0 0 0 0 0.78 0 0 0 0 0.92 0 0 0 0 0.96 0 0 0 0.32 0"/>
+                      <feBlend in="SourceGraphic" mode="normal"/>
+                    </filter>
+                    <style>
+                      .cyan-stroke { stroke:#A8E3F0; stroke-width:2.2; stroke-linejoin:round; stroke-linecap:round; }
+                      .thin-stroke { stroke:#B7E8F2; stroke-width:1.6; stroke-linejoin:round; stroke-linecap:round; }
+                      .no-stroke { stroke:none; }
+                    </style>
+                  </defs>
+                  <rect width="1600" height="900" fill="#FFFFFF"/>
+                  <polygon points="351,544 809,214 812,613 376,588" fill="url(#beamGrad)"/>
+                  <g filter="url(#softShadow)">
+                    <polygon points="246,589 320,549 320,649 246,688" fill="#F1FBFE" class="cyan-stroke"/>
+                    <polygon points="320,549 371,575 371,675 320,649" fill="url(#cyanMain)" class="cyan-stroke"/>
+                    <polygon points="246,589 320,549 371,575 297,615" fill="#F8FDFF" class="cyan-stroke"/>
+                    <circle cx="325" cy="596" r="14" fill="#FFA56A"/>
+                    <polygon points="316,531 353,511 353,563 316,583" fill="#EAF8FC" class="thin-stroke"/>
+                    <polygon points="353,511 399,534 399,585 353,563" fill="#C4EDF6" class="thin-stroke"/>
+                    <polygon points="316,531 353,511 399,534 362,554" fill="#F9FEFF" class="thin-stroke"/>
+                    <ellipse cx="353" cy="636" rx="18" ry="8" fill="#FFB07A"/>
+                    <rect x="337" y="635" width="32" height="18" rx="2" fill="#AEE6F2"/>
+                    <polygon points="345,650 360,650 360,838 345,838" fill="#9FDFEE"/>
+                    <polygon points="344,654 356,654 287,809 274,804" fill="#A7E4F1"/>
+                    <polygon points="349,654 361,654 420,789 409,794" fill="#96DBEC"/>
+                    <polygon points="292,775 354,742 444,784 381,817" fill="#EEF9FC" class="no-stroke" opacity="0.85"/>
+                  </g>
+                  <g filter="url(#softShadow)">
+                    <polygon points="794,111 1295,111 1295,610 794,610" fill="url(#panelFront)" class="cyan-stroke"/>
+                    <polygon points="1295,111 1334,132 1334,631 1295,610" fill="url(#panelSide)" class="cyan-stroke"/>
+                    <polygon points="794,111 1295,111 1334,132 833,132" fill="#B9EAF4" class="cyan-stroke"/>
+                    <polygon points="1023,529 1188,387 1295,514 1295,610 1069,610" fill="#A9E4F1"/>
+                    <polygon points="1164,524 1271,485 1295,511 1295,610 1177,610" fill="#8EDBEC"/>
+                    <circle cx="1111" cy="321" r="47" fill="#FF9D59"/>
+                    <polygon points="930,361 991,328 991,510 930,543" fill="#FFFFFF"/>
+                    <polygon points="879,391 930,361 930,543 879,572" fill="#B7EAF4"/>
+                    <polygon points="930,361 991,328 1044,355 983,388" fill="#6FD1E5"/>
+                    <polygon points="983,388 1044,355 1044,537 983,571" fill="#C9F0F7"/>
+                    <path d="M981 511 C1037 535 1072 559 1092 585 C1104 601 1097 618 1078 628 C1054 641 1020 646 972 646 L887 646 C846 646 812 636 803 618 C794 599 813 580 855 560 C893 542 920 528 938 511 C954 495 964 475 964 448 L964 384 L991 384 L991 510 Z" fill="#FFFFFF"/>
+                    <circle cx="961" cy="441" r="10" fill="#86D8E9"/>
+                    <rect x="953" y="451" width="16" height="43" rx="8" fill="#86D8E9"/>
+                    <polygon points="954,492 942,525 951,529 961,499" fill="#86D8E9"/>
+                    <polygon points="968,492 983,523 974,528 961,499" fill="#86D8E9"/>
+                    <polygon points="954,463 937,483 944,489 958,472" fill="#86D8E9"/>
+                    <polygon points="968,463 983,480 977,487 964,471" fill="#86D8E9"/>
+                  </g>
+                  <g filter="url(#softShadow)">
+                    <polygon points="638,647 1008,647 1008,740 638,740" fill="#F8FDFF" class="cyan-stroke"/>
+                    <polygon points="1008,647 1074,683 1074,775 1008,740" fill="#A3E2F0" class="cyan-stroke"/>
+                    <polygon points="638,647 1008,647 1074,683 703,683" fill="#FFFFFF" class="cyan-stroke"/>
+                    <polygon points="700,695 844,695 844,708 700,708" fill="#FFA15D"/>
+                    <polygon points="843,686 882,706 853,724 814,704" fill="#FF9A56"/>
+                    <polygon points="848,710 991,710 991,722 848,722" fill="#D8F3F9"/>
+                  </g>
                 </svg>
             </div>
         </div>
